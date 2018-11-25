@@ -76,9 +76,9 @@ void Interface::processCommandPrint()
 
 void Interface::processCommandChangeStudentData()
 {
-	int index = std::stoi(args.at(0).c_str());
-	std::string name = args.at(1).c_str();
-	std::string lastName = args.at(2).c_str();
+	int index = std::stoi(args.at(1).c_str());
+	std::string name = args.at(2).c_str();
+	std::string lastName = args.at(3).c_str();
 	manager->changeStudentData(index, name, lastName);
 }
 

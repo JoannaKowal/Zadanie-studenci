@@ -66,17 +66,17 @@ void Manager::changeStudentData(int index, std::string name, std::string lastNam
 	}
 }
 
-//void Manager::expandTable()
-//{
-//	Student* temp = new Student[tableLength + 1];
-//	for (int i = 0; i < this->tableLength; i++)
-//	{
-//		temp[i] = myStudents[i];
-//	}
-//	delete[] myStudents;
-//	myStudents = temp;
-//	tableLength = tableLength + 1;
-//}
+void Manager::expandTable()
+{
+	Student* temp = new Student[tableLength + 1];
+	for (int i = 0; i < this->tableLength; i++)
+	{
+		temp[i] = myStudents[i];
+	}
+	delete[] myStudents;
+	myStudents = temp;
+	tableLength = tableLength + 1;
+}
 
 //void Manager::reduceTable(int index)
 //{
