@@ -19,7 +19,6 @@ void Interface::run()
 		splitCurrentCommand();
 		performOperation();
 	}
-	//std::cin.get();
 }
 
 void Interface::readCommand()
@@ -51,6 +50,10 @@ void Interface::performOperation()
 		else if (number == COMMAND_CHANGE_NUMBER)
 		{
 			processCommandChangeStudentData();
+		}
+		else if (number == COMMAND_DEL_NUMBER)
+		{
+			processCommandDel();
 		}
 		else if (number == COMMAND_EXIT_NUMBER)
 		{
@@ -84,5 +87,11 @@ void Interface::processCommandChangeStudentData()
 	std::string name = args.at(2).c_str();
 	std::string lastName = args.at(3).c_str();
 	manager->changeStudentData(index, name, lastName);
+}
+
+void Interface::processCommandDel()
+{
+	int index = std::stoi(args.at(1).c_str());
+	manager->deleteStudent(index);
 }
 
