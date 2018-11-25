@@ -33,5 +33,6 @@ private:
 	void processCommandAdd();
 	void processCommandPrint();
 	void processCommandChangeStudentData();
+	void processCommandExit();
 	void printCommands();
 };

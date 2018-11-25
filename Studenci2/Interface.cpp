@@ -19,7 +19,7 @@ void Interface::run()
 		splitCurrentCommand();
 		performOperation();
 	}
-	std::cin.get();
+	//std::cin.get();
 }
 
 void Interface::readCommand()
@@ -51,6 +51,10 @@ void Interface::performOperation()
 		else if (number == COMMAND_CHANGE_NUMBER)
 		{
 			processCommandChangeStudentData();
+		}
+		else if (number == COMMAND_EXIT_NUMBER)
+		{
+			finished = true;
 		}
 	}
 	this->currentCommand = EMPTY_STRING;
