@@ -15,5 +15,6 @@ private:
 	Student * myStudents;
 	int tableLength;
 	void expandTable();
+	void reduceTable(int index);
 	void setStudentData(std::string name, std::string lastName);
 };

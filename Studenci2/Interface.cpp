@@ -48,6 +48,10 @@ void Interface::performOperation()
 		{
 			processCommandPrint();
 		}
+		else if (number == COMMAND_CHANGE_NUMBER)
+		{
+			processCommandChangeStudentData();
+		}
 	}
 	this->currentCommand = EMPTY_STRING;
 	this->args.clear();
@@ -69,3 +73,12 @@ void Interface::processCommandPrint()
 {
 	std::cout<<manager->printStudents();
 }
+
+void Interface::processCommandChangeStudentData()
+{
+	int index = std::stoi(args.at(0).c_str());
+	std::string name = args.at(1).c_str();
+	std::string lastName = args.at(2).c_str();
+	manager->changeStudentData(index, name, lastName);
+}
+

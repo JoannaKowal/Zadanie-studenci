@@ -26,6 +26,24 @@ void Manager::addStudent(std::string name, std::string lastName)
 	}
 }
 
+//void Manager::deleteStudent(int index)
+//{
+//	if (myStudents != nullptr)
+//	{
+//		if (index >= 0 && index < tableLength)
+//		{
+//			for (int i = 0; i < tableLength; i++)
+//			{
+//				if (i == index)
+//				{
+//					reduceTable(i);
+//				}
+//			}
+//		}
+//
+//	}
+//}
+
 std::string Manager::printStudents()
 {
 	std::string students = "";
@@ -39,17 +57,36 @@ std::string Manager::printStudents()
 	return students;
 }
 
-void Manager::expandTable()
+void Manager::changeStudentData(int index, std::string name, std::string lastName)
 {
-	Student* temp = new Student[tableLength + 1];
-	for (int i = 0; i < this->tableLength; i++)
+	if (index >= 0 && index < tableLength)
 	{
-		temp[i] = myStudents[i];
+		myStudents[index].setName(name);
+		myStudents[index].setLastName(lastName);
 	}
-	delete[] myStudents;
-	myStudents = temp;
-	tableLength = tableLength + 1;
 }
+
+//void Manager::expandTable()
+//{
+//	Student* temp = new Student[tableLength + 1];
+//	for (int i = 0; i < this->tableLength; i++)
+//	{
+//		temp[i] = myStudents[i];
+//	}
+//	delete[] myStudents;
+//	myStudents = temp;
+//	tableLength = tableLength + 1;
+//}
+
+//void Manager::reduceTable(int index)
+//{
+//	Student* temp = new Student[tableLength - 1];
+//	for (int i = 0; i < index; i++)
+//	{
+//		temp[i] = myStudents[i];
+//	}
+//	
+//}
 
 void Manager::setStudentData(std::string name, std::string lastName)
 {

@@ -32,5 +32,6 @@ private:
 	void performOperation();
 	void processCommandAdd();
 	void processCommandPrint();
+	void processCommandChangeStudentData();
 	void printCommands();
 };
