@@ -21,8 +21,15 @@ void Manager::addStudent(std::string name, std::string lastName)
 	}
 	else
 	{
-		expandTable();
-		setStudentData(name, lastName);
+		if (!checkDuplicate(name, lastName))
+		{
+			expandTable();
+			setStudentData(name, lastName);
+		}
+		else
+		{
+			std::cout << PROMPT_DUPLICATE << std::endl;
+		}
 	}
 }
 
@@ -75,8 +82,16 @@ void Manager::changeStudentData(int index, std::string name, std::string lastNam
 {
 	if (index >= 0 && index < tableLength)
 	{
-		myStudents[index].setName(name);
-		myStudents[index].setLastName(lastName);
+		if (!checkDuplicate(name,lastName)) 
+		{
+			myStudents[index].setName(name);
+			myStudents[index].setLastName(lastName);
+		}
+		else
+		{
+			std::cout << PROMPT_DUPLICATE << std::endl;
+		}
+		
 	}
 }
 
@@ -96,4 +111,17 @@ void Manager::setStudentData(std::string name, std::string lastName)
 {
 	myStudents[tableLength - 1].setName(name);
 	myStudents[tableLength - 1].setLastName(lastName);
+}
+
+bool Manager::checkDuplicate(std::string name, std::string lastName)
+{
+	bool found = false;
+	for (int i = 0; i < tableLength; i++)
+	{
+		if (myStudents[i].getName() == name && myStudents[i].getLastName() == lastName)
+		{
+			found = true;
+		}
+	}
+	return found;
 }
